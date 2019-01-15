@@ -3,7 +3,7 @@ const pgp = require('pg-promise')()
 let db = false
 
 const getConnection = () => {
-  const connection = 'postgres://Dmitriy:Trfnthbyf@localhost:5432/Dmitriy'
+  const connection = 'postgres://postgres:Trfnthbyf@localhost:5432/Dmitriy'
   if (!db) {
     db = pgp(connection)
   }

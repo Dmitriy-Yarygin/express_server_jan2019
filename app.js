@@ -20,20 +20,18 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
 app.use('/assets', express.static(__dirname + '/public'))
-/// /////////////////////////////////////////////////////////
 app.use('/api', apiRouter)
 
 app.get('/test', (req, res) => {
-  let data = 'getConnection'
-  //   let data = getConnection.any('SELECT * FROM yachts WHERE id = 1', [true])
-  //   .then(function (data) {
-  res.send(data)
-  //   })
-  //   .catch(function (error) {
-  //     console.log('ERROR:', error)
-  //   })
+  db.any('SELECT id, name FROM yachts')
+    .then(function (data) {
+      res.send(data)
+    })
+    .catch(function (error) {
+      console.log('ERROR:', error)
+    })
 })
-/// /////////////////////////////////////////////////////////
+
 app.use(indexRouter)
 
 // // catch 404 and forward to error handler
