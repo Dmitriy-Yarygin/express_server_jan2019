@@ -1,52 +1,59 @@
 const { getConnection } = require('../bd')
 const bd = getConnection()
+const yachtsHeader = [
+  'name',
+  'url',
+  'year',
+  'length',
+  'location',
+  'material',
+  'description',
+  'cost'
+]
 
-const count = () => {
-  const SQLquery = `SELECT COUNT(id) FROM yachts`
-  return bd.one(SQLquery)
-}
+module.exports = {
+  count: () => {
+    const SQLquery = `SELECT COUNT(id) FROM yachts`
+    return bd.one(SQLquery)
+  },
 
-const findMany = (start, limit) => {
-  const SQLquery = `SELECT * FROM yachts WHERE id>$1 AND id<=$2 ORDER BY id`
-  return bd.any(SQLquery, [start, start + limit])
-}
+  findMany: (start, limit) => {
+    // const SQLquery = `SELECT * FROM yachts WHERE id>$1 AND id<=$2 ORDER BY id`
+    const SQLquery = `SELECT * FROM yachts ORDER BY id OFFSET $1  LIMIT $2`
+    return bd.any(SQLquery, [start, limit])
 
-const findOne = id => {
-  const SQLquery = `SELECT * FROM yachts WHERE id=$1`
-  return bd.one(SQLquery, [id])
-}
+  },
 
-const insertNew = name => {
-  const SQLquery = `INSERT INTO yachts (name) VALUES ($1);`
-  console.log(SQLquery)
-  return bd.none(SQLquery, [name])
-}
+  findOne: id => {
+    const SQLquery = `SELECT * FROM yachts WHERE id=$1`
+    return bd.one(SQLquery, [id])
+  },
 
-module.exports = { count, findMany, findOne, insertNew }
+  insertNew: query => {
+    const fields = yachtsHeader.join('","')
+    const values = yachtsHeader.map(fieldName => query[fieldName])
+    const SQLquery = `INSERT INTO yachts ("${fields}") VALUES ($1, $2, $3, $4, $5, $6, $7, $8);`
+    return bd.none(SQLquery, values)
+  },
 
-// C R U D
+  Update: ({ id, ...params }) => {
+    const columnValues = yachtsHeader.reduce((previousValue, fieldName) => {
+      if (params[fieldName]) {
+        if (previousValue === '') {
+          return `${fieldName} = '${params[fieldName]}'`
+        } else {
+          return `${previousValue}, ${fieldName} = ${params[fieldName]}`
+        }
+      } else {
+        return previousValue
+      }
+    }, '')
+    const SQLquery = `UPDATE yachts SET ${columnValues} WHERE id=${id};`
+    return bd.none(SQLquery)
+  },
 
-/*
-
-router.get('/products', function (req, res, next) {
-  if (req.query._start && req.query._limit && req.query._start >= 0) {
-    const start = parseInt(req.query._start)
-    const limit = parseInt(req.query._limit)
-    const SQLquery = `SELECT * FROM yachts WHERE id>${start} AND id<=${start +
-      limit} ORDER BY id`
-    bd.any(SQLquery, [true]).then(function (data) {
-      res.setHeader('X-Total-Count', products.length)
-      res.json(data)
-    })
-  } else if (req.query.id && req.query.id > 0) {
-    const id = parseInt(req.query.id)
-    const SQLquery = `SELECT * FROM yachts WHERE id=${id}`
-    bd.one(SQLquery).then(function (data) {
-      res.json([data])
-    })
-  } else {
-    return next(createError(404))
+  Del: (id) => {
+    const SQLquery = `DELETE FROM yachts WHERE id=${id};`
+    return bd.none(SQLquery)
   }
-})
-
-*/
+}

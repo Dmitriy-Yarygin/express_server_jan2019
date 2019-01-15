@@ -23,7 +23,7 @@ app.use('/assets', express.static(__dirname + '/public'))
 app.use('/api', apiRouter)
 
 app.get('/test', (req, res) => {
-  db.any('SELECT id, name FROM yachts')
+  db.any('SELECT id,name FROM yachts ORDER BY id')
     .then(function (data) {
       res.send(data)
     })
