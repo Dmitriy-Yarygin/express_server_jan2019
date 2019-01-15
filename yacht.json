@@ -1,0 +1,70 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Southern Wind SW100 DS",
+      "url": "https://newimages.yachtworld.com/resize/1/40/60/5594060_20160105023738617_1_XLARGE.jpg",
+      "year": 2009,
+      "length": 30,
+      "location": "Italy",
+      "material": "Composite",
+      "description": "I-SEA' is a high performance cruiser that flaunts hull #09 of the successful SW 100 mini-series designed by Farr Yacht Design (Naval Architecture) and Nauta Design (General concept, interior and exterior design). Having had only one owner and a single Captain, I-Sea has been impeccably maintained and has recently benefited from significant technical investments, including the upgrading of the rigging from Rod to Carbon EC6+, a topside repaint and a new set of cruising sail.",
+      "cost": 1200
+    },
+    {
+      "id": 2,
+      "name": "Jongert 3200 Classic",
+      "url": "http://sail.allyachts.ru/img/18_12_2014_67099001.jpg",
+      "year": 2018,
+      "length": 35,
+      "location": "Netherlands",
+      "material": "ComAluminumposite",
+      "description": "The Company offers the details of this vessel in good faith but cannot guarantee or warrant the accuracy of this information nor warrant the condition of the vessel. A buyer should instruct his agents, or his surveyors, to investigate such details as the buyer desires validated. This vessel is offered subject to prior sale, price change, or withdrawal without notice. ",
+      "cost": 1000
+    },
+    {
+      "id": 3,
+      "name": "Komorebi Yachts Komorebi 42 m",
+      "url": "https://newimages.yachtworld.com/resize/1/12/58/6161258_20180614063456447_1_XLARGE.jpg",
+      "year": 2018,
+      "length": 42,
+      "location": "France",
+      "material": "Other",
+      "description": "This one-of-a-kind yacht that you are about to discover is the perfect synergy between long range ocean cruising & easy day sailing. This low impact Yacht capable to cruise the globe; As well with an America’s Cup inspired rig, with a patented mast sail, “Ocean Wings” for a 50% increase in speed compare to a normalsail.",
+      "cost": 1100
+    },
+    {
+      "id": 4,
+      "name": "Jongert 3200P",
+      "url": "https://www.superyachttimes.com/system/legacy/articles/Image/Companies/Rhoades-Young/2013-01-Jongert-3200P/Jongert-3200P.jpg",
+      "year": 2018,
+      "length": 32,
+      "location": "Netherlands",
+      "material": "Aluminum",
+      "description": "Having evolved from the Jongert Modern Line, the P Line is an exciting addition to the Jongert range. The exceptionally sleek lines of these lovely superyachts are sure to steal the hearts of their future owners, while the underlying design is also created to lead the way on the regatta courses. With a P Line yacht you can circumnavigate the world and win races along the way..... Stylish design, excellent performance levels and the distinctive Jongert brand of comfort and quality: These are the winning ingredients with which Jongert is embarking on a new successfull era. P Line owners will benefit from our highly effective approach, with a number of choices available within the standard size,hull and superstructure design and uniformity of various elements and components. The new Jongert Performance Line: A first-class performance without any compromise on comfort.",
+      "cost": 1200
+    },
+    {
+      "id": 5,
+      "name": "Azuree 46",
+      "url": "https://imgs.yachthub.com/1/5/6/2/2/5/0_4.jpg",
+      "year": 2018,
+      "length": 14,
+      "location": "Netherlands",
+      "material": "StFibreglass/GRPeel",
+      "description": "This is a brand new Demo yacht and has been launched and rigged in the end of February 2018 for the first time. The yacht has a very beautiful and well finished oak interior and is equipped with a lot of interesting options, like;  A Vinylester hull.  A teak deck, teak on the superstructure, teak on the cockpit floor, teak on the cockpit seats and teak on the bathing platform.  A Carbon bowsprit, 3 electric winches, an electric folding bathing platform covered with teak, 2 electric toilets, a retractable bow truster, a Raymarine set (Raymarine i70 Speed/Depht/Wind, Evolution autopilot, VHF, Raymarine eS97 9 Hybrid-Touch Multifunctional Display chart plotter, AIS650 Transponder), cockpit cushions, cockpit lighting, a Fushion sound system, an inverter, a fridge, a freezer, a 2.20 metre low-draft keel and much more options !",
+      "cost": 1300
+    },
+    {
+      "id": 6,
+      "name": "2019 Ada Yacht 50M",
+      "url": "https://www.charterworld.com/images/yachts-1/Ada%20designed%20yacht%20ALL%20ABOUT%20U%20-%20Profile.jpg",
+      "year": 2019,
+      "length": 54,
+      "location": "Marmaris, Turkey",
+      "material": "Steel",
+      "description": "ll About U is a custom motor sailor sloop rigged currently under construction in ADA Yachts, Bodrum, Turkey. Built to a very high standard. This high-volume superyacht was design with one full beam Master cabin, one VIP full beam cabin and 4 large double guest cabins. The salon, dining area and wheelhouse are design in one open large space with a 360 degrees panoramic view. The 65 square meter flybridge layout was designed to entertain large amount of guests with modular furniture. Transom door can be converted to a huge 26 square meter swim platform. Large and well-designed galley, built to service large number of guests. High standard sailing package including Lwamar captive winches for safe and easy handling of the large sail plan.",
+      "cost": 1400
+    }
+  ]  
+}
