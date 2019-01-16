@@ -6,9 +6,9 @@ module.exports = {
 
   FindOne: id => model.findOne(id),
 
-  InsertNew: query => model.insertNew(query),
+  InsertNew: product => model.insertNew(product),
 
-  Uppdate: (query) => model.Update(query),
+  Uppdate: product => model.Update(product),
 
-  Del: (id) => model.Del(id)
+  Del: id => model.Del(id)
 }

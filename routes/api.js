@@ -12,9 +12,10 @@ router.get('/products', function (req, res, next) {
   ) {
     const start = parseInt(req.query._start)
     const limit = parseInt(req.query._limit)
-    manager.FindMany(start, limit)
+    manager
+      .FindMany(start, limit)
       .then(function (data) {
-        res.setHeader('X-Total-Count', parseInt(data[0].count))
+        res.setHeader('X-Total-Count', parseInt(data[0]))
         res.json(data[1])
       })
       .catch(err => next(err))
@@ -26,7 +27,8 @@ router.get('/products', function (req, res, next) {
 router.get('/products', function (req, res, next) {
   if (req.query.id && req.query.id > 0) {
     const id = parseInt(req.query.id)
-    manager.FindOne(id)
+    manager
+      .FindOne(id)
       .then(function (data) {
         res.json([data])
       })
@@ -37,20 +39,11 @@ router.get('/products', function (req, res, next) {
 })
 
 router.post('/products/add', function (req, res, next) {
-  if (req.query) {
-    manager.InsertNew(req.query).catch(err => next(err))
-  } else {
-    return next(createError("This record must have more data"))
-  }
+  manager.InsertNew(req.body).catch(err => next(err))
 })
 
 router.patch('/products/update', function (req, res, next) {
-  if (req.query.id) {
-    res.json(req.query)
-    manager.Uppdate(req.query).catch(err => next(err))
-  } else {
-    return next(createError(`Record with id=${req.query.id} doesn't change`))
-  }
+  manager.Uppdate(req.body).catch(err => next(err))
 })
 
 router.delete('/products/del', function (req, res, next) {

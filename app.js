@@ -5,9 +5,6 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const indexRouter = require('./routes/index')
 const apiRouter = require('./routes/api')
-const { getConnection } = require('./bd')
-const db = getConnection()
-
 const app = express()
 
 // view engine setup
@@ -21,16 +18,6 @@ app.use(cookieParser())
 
 app.use('/assets', express.static(__dirname + '/public'))
 app.use('/api', apiRouter)
-
-app.get('/test', (req, res) => {
-  db.any('SELECT id,name FROM yachts ORDER BY id')
-    .then(function (data) {
-      res.send(data)
-    })
-    .catch(function (error) {
-      console.log('ERROR:', error)
-    })
-})
 
 app.use(indexRouter)
 
