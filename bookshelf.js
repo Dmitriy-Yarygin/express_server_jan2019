@@ -6,8 +6,12 @@ const bookshelf = require('bookshelf')(knex)
 
 bookshelf.plugin('pagination')
 
+const Users = bookshelf.Model.extend({
+  tableName: 'users'
+})
+
 const Yachts = bookshelf.Model.extend({
   tableName: 'yachts'
 })
 
-module.exports = Yachts
+module.exports = {Users, Yachts}

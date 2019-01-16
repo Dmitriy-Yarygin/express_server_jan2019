@@ -1,17 +1,17 @@
-const yachts = require('../bookshelf')
+const { Yachts } = require('../bookshelf')
 
 module.exports = {
-  count: () => yachts.count('id'),
+  count: () => Yachts.count('id'),
 
   findMany: (offset, limit) =>
-    yachts.query('orderBy', 'id').fetchPage({ limit, offset }),
+    Yachts.query('orderBy', 'id').fetchPage({ limit, offset }),
 
-  findOne: id => yachts.where('id', id).fetch(),
+  findOne: id => Yachts.where('id', id).fetch(),
 
-  insertNew: product => yachts.forge(product).save(),
+  insertNew: product => Yachts.forge(product).save(),
 
   Update: product =>
-    yachts.where('id', product.id).save(product, { method: 'update' }),
+    Yachts.where('id', product.id).save(product, { method: 'update' }),
 
-  Del: id => yachts.where('id', id).destroy()
+  Del: id => Yachts.where('id', id).destroy()
 }
