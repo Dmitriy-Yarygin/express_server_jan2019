@@ -13,17 +13,19 @@ router.post('/register', function (req, res, next) {
 })
 
 router.get('/login', function (req, res, next) {
-  manager
-    .Login(req.query)
-    .then(function (data) {
-      req.session.isLogin = data
-      if (data) {
-        res.end('SUCCESS')
-      } else {
-        res.end('TRY AGAIN')
-      }
-    })
-    .catch(err => next(err))
+  if (req.query && req.query.email && req.query.password) {
+    manager
+      .Login(req.query)
+      .then(function (data) {
+        req.session.isLogin = data
+        if (data) {
+          res.end('SUCCESS')
+        } else {
+          res.end('TRY AGAIN')
+        }
+      })
+      .catch(err => next(err))
+  } else res.end('You must enter both: email and password')
 })
 
 router.get('/logout', function (req, res, next) {
