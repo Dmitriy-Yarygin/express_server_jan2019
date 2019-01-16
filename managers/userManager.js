@@ -5,13 +5,6 @@ module.exports = {
 
   Login: ({ email, password }) =>
     model.find(email).then(
-      data =>
-        new Promise((resolve, reject) => {
-          if (data.attributes.password === password) {
-            resolve(true)
-          } else {
-            resolve(false)
-          }
-        })
+      data => (data.attributes.password === password)
     )
 }
